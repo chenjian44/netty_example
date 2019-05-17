@@ -13,8 +13,8 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
         String body = new String(req, "UTF-8");
-        System.out.println("The time server reveice order : " + body);
-        String currentTime = "Qery Time Order".equalsIgnoreCase(body) ? String.valueOf(System.currentTimeMillis()) : "Bad Order";
+        System.out.println("The time server receive order : " + body);
+        String currentTime = "Query Time Order".equalsIgnoreCase(body) ? String.valueOf(System.currentTimeMillis()) : "Bad Order";
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         ctx.write(resp);
     }
