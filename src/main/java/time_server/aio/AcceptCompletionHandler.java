@@ -1,14 +1,10 @@
-package aio;
+package time_server.aio;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 
-/**
- * @author: 陈健
- * @date: 2019/1/30 16:16
- * @description:
- */
+
 public class AcceptCompletionHandler implements  CompletionHandler<AsynchronousSocketChannel, AsyncTimeServerHandler> {
 
 

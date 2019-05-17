@@ -1,4 +1,4 @@
-package aio;
+package time_server.aio;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -7,11 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 
-/**
- * @author: 陈健
- * @date: 2019/1/30 16:26
- * @description:
- */
+
 public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuffer> {
 
     private AsynchronousSocketChannel channel;

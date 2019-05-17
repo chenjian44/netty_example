@@ -1,10 +1,6 @@
-package aio;
+package time_server.aio;
 
-/**
- * @author: 陈健
- * @date: 2019/1/30 15:23
- * @description:
- */
+
 public class TimeServer {
 
     public static void main(String[] args) {

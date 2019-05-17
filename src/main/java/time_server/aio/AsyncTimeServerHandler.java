@@ -1,15 +1,11 @@
-package aio;
+package time_server.aio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.util.concurrent.CountDownLatch;
 
-/**
- * @author: 陈健
- * @date: 2019/1/30 15:27
- * @description:
- */
+
 public class AsyncTimeServerHandler implements Runnable {
 
     private int port;
