@@ -1,4 +1,4 @@
-package time_server.netty;
+package time_server.netty.normal;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -20,7 +20,7 @@ public class TimeClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new TimeClinetHandler());
+                            ch.pipeline().addLast(new TimeClientHandler());
                         }
                     });
             ChannelFuture f = b.connect(host, port).sync();

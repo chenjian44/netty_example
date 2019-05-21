@@ -1,4 +1,4 @@
-package time_server.netty;
+package time_server.netty.normal;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -8,11 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class TimeClinetHandler extends ChannelHandlerAdapter {
+public class TimeClientHandler extends ChannelHandlerAdapter {
 
     private final ByteBuf firstMessage;
 
-    public TimeClinetHandler() {
+    public TimeClientHandler() {
         byte[] req = "Query Time Order".getBytes();
         firstMessage = Unpooled.buffer(req.length);
         firstMessage.writeBytes(req);
