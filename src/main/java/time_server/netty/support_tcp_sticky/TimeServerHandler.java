@@ -1,0 +1,33 @@
+package time_server.netty.support_tcp_sticky;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+
+public class TimeServerHandler extends ChannelHandlerAdapter {
+
+    private int counter;
+
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        String body = (String) msg;
+        System.out.println("The time server receive order : " + body +
+                "; the counter is : " + ++counter);
+        String currentTime = "Query Time Order".equalsIgnoreCase(body)
+                ? String.valueOf(System.currentTimeMillis()) : "Bad Order";
+        ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
+        ctx.writeAndFlush(resp);
+    }
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        ctx.flush();
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        ctx.close();
+    }
+
+}
